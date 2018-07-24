@@ -1,0 +1,10 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+agile.autoconfigure.AsyncAutoConfiguration,\
+agile.autoconfigure.FastJsonAutoConfiguration,\
+agile.autoconfigure.LoggingAspectAutoConfiguration,\
+agile.autoconfigure.LoggingAutoConfiguration,\
+agile.autoconfigure.MetricsAutoConfiguration,\
+agile.autoconfigure.MyBatisPlusAutoConfiguration,\
+agile.autoconfigure.MyBatisPlusRefreshAutoConfiguration,\
+agile.autoconfigure.WebConfigurer

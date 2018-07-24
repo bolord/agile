@@ -1,0 +1,167 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+logging:
+    level:
+        ROOT: DEBUG
+        io.github.jhipster: DEBUG
+        agile: DEBUG
+        com.ulisesbocchio.jasyptspringboot.configuration: INFO
+        com.netflix.discovery: INFO
+        org.mybatis.spring.mapper.ClassPathMapperScanner: DEBUG
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
+
+spring:
+    profiles:
+        active: dev
+        include: swagger
+    jackson:
+        serialization.indent_output: true
+    cloud:
+        stream:
+            kafka:
+                binder:
+                    brokers: localhost
+                    zk-nodes: localhost
+            bindings:
+                output:
+                    destination: topic-jhipster
+    datasource:
+        name: master
+        url: jdbc:mariadb://120.79.227.16:9630/misa?autoReconnect=true&useUnicode=true&characterEncoding=utf8
+        username: root
+        password: maywide_123
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: org.mariadb.jdbc.Driver
+        druid:
+            initial-size: 1
+            min-idle: 1
+            max-active: 10
+            # 获取连接时最大等待时间，单位毫秒
+            max-wait: 3000
+            # 间隔多久检测需要关闭的空闲连接，单位毫秒
+            time-between-eviction-runs-millis: 60000
+            # 连接在池中最小生存的时间，单位毫秒
+            min-evictable-idle-time-millis: 300000
+            validation-query: select 1
+            validation-query-timeout: 3000
+            test-while-idle: true
+            test-on-borrow: false
+            test-on-return: false
+            pool-prepared-statements: true
+            max-open-prepared-statements: 20
+            filters: stat,wall
+            use-global-data-source-stat: false
+    data:
+        elasticsearch:
+            cluster-name:
+            cluster-nodes: localhost:9300
+            properties:
+                path:
+                    logs: target/elasticsearch/log
+                    data: target/elasticsearch/data
+    mail:
+        host: localhost
+        port: 25
+        username:
+        password:
+    messages:
+        cache-duration: PT1S # 1 second, see the ISO 8601 standard
+    zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
+        base-url: http://localhost:9411
+        enabled: false
+        locator:
+            discovery:
+                enabled: true
+
+# ===================================================================
+# To enable SSL, generate a certificate using:
+# keytool -genkey -alias service -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+#
+# You can also use Let's Encrypt:
+# https://maximilian-boehm.com/hp2121/Create-a-Java-Keystore-JKS-from-Let-s-Encrypt-Certificates.htm
+#
+# Then, modify the server.ssl properties so your "server" configuration looks like:
+#
+# server:
+#    port: 8443
+#    ssl:
+#        key-store: keystore.p12
+#        key-store-password: <your-password>
+#        key-store-type: PKCS12
+#        key-alias: service
+# ===================================================================
+server:
+    port: 9000
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+    http:
+        version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
+    cache: # Cache configuration
+        ehcache: # Ehcache configuration
+            time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
+            max-entries: 100 # Number of objects in each cache entry
+    # CORS is disabled by default on microservices, as you should access them through a gateway.
+    # If you want to enable it, please uncomment the configuration below.
+    # cors:
+        # allowed-origins: "*"
+        # allowed-methods: "*"
+        # allowed-headers: "*"
+        # exposed-headers: "Authorization,Link,X-Total-Count"
+        # allow-credentials: true
+        # max-age: 1800
+    security:
+        authentication:
+            jwt:
+                secret: my-secret-token-to-change-in-production
+                # Token is valid 24 hours
+                token-validity-in-seconds: 86400
+                token-validity-in-seconds-for-remember-me: 2592000
+    mail: # specific JHipster mail property, for standard properties see MailProperties
+        from: service@localhost
+        base-url: http://127.0.0.1:8081
+    metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
+        jmx:
+            enabled: true
+        logs: # Reports Dropwizard metrics in the logs
+            enabled: false
+            report-frequency: 60 # in seconds
+    logging:
+        logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+            enabled: false
+            host: localhost
+            port: 5000
+            queue-size: 512
+
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# application:
