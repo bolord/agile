@@ -1,4 +1,4 @@
-package agile.common.entity;
+package agile.core.web.rest.common.entity;
 
 import java.util.Date;
 

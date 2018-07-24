@@ -2,6 +2,7 @@ package agile.autoconfigure;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnResource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.spring.MybatisMapperRefresh;
 
 @Profile("dev")
 @Configuration
+@ConditionalOnResource(resources = { "classpath:mapper" })
 public class MyBatisPlusRefreshAutoConfiguration {
 
     @Autowired

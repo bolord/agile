@@ -1,4 +1,4 @@
-package agile.common.result;
+package agile.core.web.rest.common.result;
 
 /**
  * RESTful API 统一分页数据装饰类

@@ -1,4 +1,4 @@
-package agile.common.result;
+package agile.core.web.rest.common.result.builder;
 
 import static org.springframework.http.HttpStatus.OK;
 
@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.baomidou.mybatisplus.plugins.Page;
+
+import agile.core.web.rest.common.result.PageResult;
+import agile.core.web.rest.common.result.Result;
 
 public class ResponseEntityBuilder {
 

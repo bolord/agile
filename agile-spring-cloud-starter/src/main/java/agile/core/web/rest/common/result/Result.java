@@ -1,4 +1,4 @@
-package agile.common.result;
+package agile.core.web.rest.common.result;
 
 /**
  * RESTful API 统一数据响应基类

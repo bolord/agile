@@ -4,12 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import agile.core.web.rest.common.controller.AgileRestController;
 import agile.service.entity.Role;
 import agile.service.service.RoleService;
 
 import io.swagger.annotations.Api;
-
-import agile.common.controller.AgileRestController;
 
 /**
  * <p>

@@ -1,4 +1,4 @@
-package agile.common.controller;
+package agile.core.web.rest.common.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,9 +14,9 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 
-import agile.common.result.PageResult;
-import agile.common.result.ResponseEntityBuilder;
-import agile.common.result.Result;
+import agile.core.web.rest.common.result.PageResult;
+import agile.core.web.rest.common.result.Result;
+import agile.core.web.rest.common.result.builder.ResponseEntityBuilder;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;

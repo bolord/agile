@@ -8,7 +8,7 @@ public class IPUtils {
 	 * 获取请求的 IP 地址
 	 *
 	 */
-	public static String getIP(HttpServletRequest request) {
+	public static String getRemoteAddress(HttpServletRequest request) {
 		String ip = request.getHeader("x-forwarded-for");
 
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {

@@ -3,10 +3,12 @@ package agile.service.entity;
 import java.io.Serializable;
 
 import com.baomidou.mybatisplus.enums.IdType;
+
+import agile.core.web.rest.common.entity.AuditingEntity;
+
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.annotations.TableLogic;
-import agile.common.entity.AuditingEntity;
 
 /**
  * <p>

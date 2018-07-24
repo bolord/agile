@@ -1,4 +1,4 @@
-package agile.common.result;
+package agile.core.web.rest.common.result;
 
 public class TokenResult extends Result {
 

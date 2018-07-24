@@ -14,7 +14,6 @@
     </parent>
 
     <modules>
-        <module>agile-spring-boot-starter</module>
         <module>agile-spring-cloud-starter</module>
         <module>agile-gateway</module>
         <module>agile-service</module>
@@ -113,7 +112,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
-                <version>1.1.10</version>
+                <version>${druid-spring-boot-starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
